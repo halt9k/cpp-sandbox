@@ -3,11 +3,11 @@
 #include <cassert>
 #include <iomanip>
 
-using namespace std;
+#include "Arr.h"
+#include "Str.h"
 
-string ltrim(const string&);
-string rtrim(const string&);
-vector<string> split(const string&);
+
+
 
 /*
     Complete the 'formingMagicSquare' function below.
@@ -15,11 +15,6 @@ vector<string> split(const string&);
     The function is expected to return an INTEGER.
     The function accepts 2D_INTEGER_ARRAY m_sq as parameter.
 */
-
-typedef vector<int> ArrInt;
-typedef vector<vector<int>> Arr2D;
-
-#define FOR_XY(x0, x1, y0, y1) for(int y = y0; y <= y1; ++y) for(int x = x0; x <= x1; ++x)
 
 
 struct Pt
@@ -29,22 +24,8 @@ struct Pt
 
 typedef vector<Pt> ArrPts;
 
-void print_arr(ArrInt& arr)
-	{
-	for (auto& it : arr)
-		cout << setw(3) << it << ' ';
-	cout << endl;
-	}
 
-
-void print_2d_arr(Arr2D& arr_2d)
-	{
-	for (auto& arr : arr_2d)
-		print_arr(arr);
-	}
-
-
-ArrPts get_abs_max_pts(Arr2D nums)
+ArrPts get_abs_max_pts(VecVecInt nums)
 	{
 	int abs_max = abs(nums[0][0]);
 	
@@ -76,7 +57,7 @@ int is_sup_diag(int x, int y)
 	}
 
 
-int vsum(ArrInt& arr)
+int vsum(VecInt& arr)
 	{
 	return accumulate(arr.begin(), arr.end(), 0);
 	}
@@ -84,9 +65,9 @@ int vsum(ArrInt& arr)
 
 struct LineSums
 	{
-	ArrInt rows = ArrInt(3);
-	ArrInt cols = ArrInt(3);
-	Arr2D sq;
+	VecInt rows = VecInt(3);
+	VecInt cols = VecInt(3);
+	VecVecInt sq;
 	int diag_m = 0, diag_r = 0;
 	
 	int& operator[](int id)
@@ -94,7 +75,7 @@ struct LineSums
 		return id < 3 ? rows[id] : cols[id - 3];
 		}
 		
-	void calc_from(Arr2D& m_sq)
+	void calc_from(VecVecInt& m_sq)
 		{
 		sq = m_sq;
 		FOR_XY(0, 2, 0, 2)
@@ -130,7 +111,7 @@ struct LineSums
 	};
 
 
-void calc_diffs(LineSums line_sums, Arr2D& diff_sq, Arr2D& diff_sq_abs, int try_magic_n)
+void calc_diffs(LineSums line_sums, VecVecInt& diff_sq, VecVecInt& diff_sq_abs, int try_magic_n)
 	{
 	FOR_XY(0, 2, 0, 2)
 		{
@@ -164,7 +145,7 @@ template <typename T> int sgn(T val)
 	}
 
 
-int try_fix(Arr2D nums, int step, int initial_diff, int target_magic_n, Arr2D& final_sq)
+int try_fix(VecVecInt nums, int step, int initial_diff, int target_magic_n, VecVecInt& final_sq)
 	{
 	final_sq = nums;
 	
@@ -173,8 +154,8 @@ int try_fix(Arr2D nums, int step, int initial_diff, int target_magic_n, Arr2D& f
 	line_sums.calc_from(nums);
 	//print_sq(nums, line_sums);
 	
-	Arr2D diff_sq(3, ArrInt(3));
-	Arr2D diff_sq_abs(3, ArrInt(3));
+	VecVecInt diff_sq(3, VecInt(3));
+	VecVecInt diff_sq_abs(3, VecInt(3));
 	calc_diffs(line_sums, diff_sq, diff_sq_abs, target_magic_n);
 	
 	// cout << "Diffs: " << endl;
@@ -205,7 +186,7 @@ int try_fix(Arr2D nums, int step, int initial_diff, int target_magic_n, Arr2D& f
 			}
 			
 		// cout << "Selected: " << pt.x << " " << pt.y << endl;
-		Arr2D next_nums = nums;
+		VecVecInt next_nums = nums;
 		next_nums[pt.y][pt.x] -= sgn(diff_sq[pt.y][pt.x]);
 		int fin_step = try_fix(next_nums, step + 1, initial_diff, target_magic_n, final_sq);
 		if (fin_step > -1)
@@ -226,7 +207,7 @@ int formingMagicSquare(vector<vector<int>> s)
 	line_sums.calc_from(s);
 	line_sums.print();
 	
-	Arr2D final_sq = s;
+	VecVecInt final_sq = s;
 	int min_steps = -1;
 	for (int tgt_m = 3; tgt_m < 3 * 9; ++tgt_m)
 		{
@@ -241,7 +222,7 @@ int formingMagicSquare(vector<vector<int>> s)
 	}
 
 
-int main()
+int main_magic_square()
 	{
 	// ofstream fout("./out/out.txt");
 	ofstream fout;
@@ -256,7 +237,7 @@ int main()
 		string s_row_temp_temp;
 		getline(fin, s_row_temp_temp);
 		
-		vector<string> s_row_temp = split(rtrim(s_row_temp_temp));
+		vector<string> s_row_temp = Str::split(Str::rtrim(s_row_temp_temp));
 		
 		for (int j = 0; j < 3; j++)
 			{
@@ -278,47 +259,4 @@ int main()
 	fin.close();
 	
 	return getwchar();
-	}
-
-string ltrim(const string& str)
-	{
-	string s(str);
-	
-	s.erase(
-		s.begin(),
-		find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-	);
-	
-	return s;
-	}
-
-string rtrim(const string& str)
-	{
-	string s(str);
-	
-	s.erase(
-		find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-		s.end()
-	);
-	
-	return s;
-	}
-
-vector<string> split(const string& str)
-	{
-	vector<string> tokens;
-	
-	string::size_type start = 0;
-	string::size_type end = 0;
-	
-	while ((end = str.find(" ", start)) != string::npos)
-		{
-		tokens.push_back(str.substr(start, end - start));
-		
-		start = end + 1;
-		}
-		
-	tokens.push_back(str.substr(start));
-	
-	return tokens;
 	}
