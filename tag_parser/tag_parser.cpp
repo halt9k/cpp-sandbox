@@ -1,8 +1,7 @@
-#include <cassert>
-#include <exception>
-
 #include "stdc++.h"
+#include <cassert>
 
+#include "surpress_crt.h"
 #include "Str.h"
 #include "Arr.h"
 #include "IO.h"
@@ -45,6 +44,8 @@ void tag_parser()
 
 int main()
 	{
+	surpress_crt();
+	
 	tag_parser();
 	return getwchar();
 	}
