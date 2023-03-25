@@ -34,7 +34,7 @@ void parse(string& line, DictStr& dict_str, string& cur_path)
 		}
 	else
 		{
-		if (cur_path.size() > 1)
+		if (cur_path.size() > 0)
 			cur_path += '.';
 		cur_path += tag;
 		words.erase(words.begin());
@@ -59,7 +59,7 @@ void parse(string& line, DictStr& dict_str, string& cur_path)
 
 void tag_parser()
 	{
-	VecStr lines = IO::read_text_input("../test/tag_parser/in_2.txt");
+	VecStr lines = IO::read_text_input("../test/tag_parser/in_5.txt");
 	
 	VecInt inputs = Arr::str_to_int(Str::split(lines[0]));
 	int N = inputs[0];
@@ -78,10 +78,9 @@ void tag_parser()
 	FOR(x, N + 1, N + Q)
 		{
 		string req = lines[x];
-		string val = dict_str[req];
 		
-		if (val != "")
-			out_lines.push_back(val);
+		if (dict_str.count(req) > 0)
+			out_lines.push_back(dict_str[req]);
 		else
 			out_lines.push_back("Not Found!");
 		}

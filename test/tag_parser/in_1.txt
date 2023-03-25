@@ -1,8 +1,8 @@
 4 3
-<tag1 value = "HelloWorld">
+<t value = "Hello World">
 <tag2 name = "Name1">
-</tag2>
+</t>
 </tag1>
-tag1.tag2~name
+t.tag2~name
 tag1~name
 tag1~value

@@ -1,0 +1,11 @@
+4 6
+<tag1>
+<tag2 value1="" value3 = "v3">
+</tag2>
+</tag1>
+tag1.value
+tag1~value1
+tag1.tag2~value1
+tag1.tag2~value3
+tag1.tag2~value2
+tag1.value

@@ -1,0 +1,16 @@
+8 7
+<a 1 = "" 2 = "  __" 3 = " \ / " >
+<tag3>
+<t-4 another = "another">
+</t-4>
+</tag3>
+</a>
+<tag2>
+</tag2>
+a~frg
+a~1
+a~2
+a~3
+a.tag3
+a.tag3.t-4~another
+tag3.t-4~another
