@@ -20,7 +20,7 @@ VecStr IO::read_input()
 // TODO improve
 VecStr IO::read_text_input(string fname)
 	{
-	assert(filesystem::exists("helloworld.txt"));
+	assert(filesystem::exists(fname));
 	
 	VecStr result;
 	ifstream fin(fname);

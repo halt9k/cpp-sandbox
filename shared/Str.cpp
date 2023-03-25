@@ -1,20 +1,53 @@
 #include "Str.h"
+#include <cassert>
+#include <algorithm>
 
 
-VecStr Str::split(const string& str)
+
+void Str::safe_erase(string& str, int pos, string sub_str)
 	{
+	if (pos < 0)
+		pos = str.length() + pos;
+		
+	assert(str.substr(pos, sub_str.size()) == sub_str);
+	str.erase(pos, sub_str.size());
+	}
+
+
+VecStr Str::split(const string& str, string delims)
+	{
+	string str_copy = str;
+	
+	if (delims.empty())
+		delims = " ";
+		
+	char separator = delims[0];
+	if (delims.size() > 1)
+		for (auto& delim : delims)
+			replace(str_copy.begin(), str_copy.end(), delim, separator);
+			
 	VecStr tokens;
 	
 	string::size_type start = 0;
-	string::size_type end = 0;
 	
-	while ((end = str.find(" ", start)) != string::npos)
+	str_copy = separator + str_copy + separator;
+	for (int i = 1; i < str_copy.size(); ++i)
 		{
-		tokens.push_back(str.substr(start, end - start));
-		start = end + 1;
+		char& c = str_copy[i];
+		char& prev = str_copy[i - 1];
+		
+		if ((prev == separator) == (c == separator))
+			continue;
+			
+		if (c != separator)
+			{
+			start = i;
+			continue;
+			}
+			
+		tokens.push_back(str_copy.substr(start, i - start));
 		}
 		
-	tokens.push_back(str.substr(start));
 	return tokens;
 	}
 

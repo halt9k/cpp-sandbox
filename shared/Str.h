@@ -4,9 +4,11 @@
 
 #include "Arr.h"
 
+// Not using boost, etc intentionally in this specific project
 namespace Str
 	{
-	VecStr split(const string& str);
+	void safe_erase(string& str, int pos, string sub_str);
+	VecStr split(const string& str, string delims = "");
 	bool is_not_space(char c);
 	string ltrim(const string& str);
 	string rtrim(const string& str);
