@@ -1,6 +1,8 @@
 #include <filesystem>
 #include <cassert>
 
+#include <windows.h>
+
 #include "IO.h"
 #include "Str.h"
 
@@ -48,3 +50,9 @@ void IO::write_text_output(string fname, VecStr& lines)
 		
 	fout.close();
 	}
+
+void IO::open_dir(string dirname)
+	{
+	ShellExecuteA(NULL, "open", dirname.c_str(), NULL, NULL, SW_SHOWDEFAULT);
+	}
+

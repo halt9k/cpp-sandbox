@@ -33,6 +33,9 @@
     <ClCompile Include="..\shared\surpress_crt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\board_rank\board_rank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\shared\Arr.h">

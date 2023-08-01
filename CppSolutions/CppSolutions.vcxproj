@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\board_rank\board_rank.cpp" />
     <ClCompile Include="..\magic_square\magic_square.cpp" />
     <ClCompile Include="..\shared\Arr.cpp" />
     <ClCompile Include="..\shared\IO.cpp" />
