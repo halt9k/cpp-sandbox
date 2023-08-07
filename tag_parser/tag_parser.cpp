@@ -89,7 +89,7 @@ void tag_parser()
 	}
 
 
-int main()
+int main_()
 	{
 	surpress_crt();
 	

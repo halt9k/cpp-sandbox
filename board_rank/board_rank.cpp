@@ -21,41 +21,42 @@ using namespace Str;
     2. INTEGER_ARRAY new_scores
 */
 
-// prev_scores         100 100 50 40 40 20 10  idp->
+// prev_scores         100 100 50 40 40 20 10
 // prev_positions      1   1   2  3  3  4  5
 
-// new_scores          5 25 50 120             idn<-
+// new_scores          5 25 50 120
 // new_ranks       ? ?  ?  ?
+
+vector<int> estimate_ranks(vector<int>& scores)
+	{
+	vector<int> ranks(scores.size());
+	
+	int rank = 1;
+	ranks[0] = 1;
+	for (int i = 1; i < scores.size(); i++)
+		{
+		if (scores[i] < scores[i - 1])
+			rank++;
+		ranks[i] = rank;
+		}
+	return ranks;
+	}
 
 vector<int> climbingLeaderboard(vector<int> prev_scores, vector<int> new_scores)
 	{
+	vector<int> prev_ranks = estimate_ranks(prev_scores);
 	vector<int> new_ranks(new_scores.size());
 	
-	int idp = 0, idn = new_scores.size() - 1, idp_rank = 1;
-	int max_cycles = prev_scores.size() + new_scores.size();
-	
-	for (int i = 0; i < max_cycles; i++)
+	for (int i = 0; i < new_scores.size(); i++)
 		{
-		if (new_scores[idn] >= prev_scores[idp])
-			{
-			new_ranks[idn] = idp_rank;
-			idn--;
-			}
-		else if (idp < prev_scores.size() - 1)
-			{
-			idp++;
-			
-			if (prev_scores[idp] < prev_scores[idp - 1])
-				idp_rank++;
-			}
-		else // score below lowest
-			{
-			new_ranks[idn] = idp_rank + 1;
-			idn--;
-			}
-			
-		if (idn < 0)
-			break;
+		int unk_score = new_scores[i];
+		auto it = upper_bound(prev_scores.rbegin(), prev_scores.rend(), unk_score);
+		int idx = - 1 - distance(prev_scores.rend(), it);
+		
+		if (it != prev_scores.rend())
+			new_ranks[i] = prev_ranks[idx] + 1;
+		else
+			new_ranks[i] = 1;
 		}
 		
 	return new_ranks;
