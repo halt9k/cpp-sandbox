@@ -13,6 +13,8 @@
   <ItemGroup>
     <ClCompile Include="..\board_rank\board_rank.cpp" />
     <ClCompile Include="..\magic_square\magic_square.cpp" />
+    <ClCompile Include="..\matrix_exclude\matrix_exclude_fast.cpp" />
+    <ClCompile Include="..\matrix_exclude\matrix_exclude_readable_debug.cpp" />
     <ClCompile Include="..\shared\Arr.cpp" />
     <ClCompile Include="..\shared\IO.cpp" />
     <ClCompile Include="..\shared\Str.cpp" />
