@@ -4,10 +4,13 @@
 
 
 #include "..\apps\tag_parser\tag_parser.h"
+#include "unwrapped\surpress_crt.h"
 
 
 int main()
 	{
+	surpress_crt();
+	
 	// an app to run by default
 	tag_parser();
 	

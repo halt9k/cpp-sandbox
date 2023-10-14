@@ -2,7 +2,6 @@
 #include <sstream>
 
 #include "hr_wrap.h"
-#include "surpress_crt.h"
 #include "sandbox.h"
 
 #include "Str.h"
@@ -93,8 +92,6 @@ void tag_parser()
 
 int main()
 	{
-	surpress_crt();
-	
 	tag_parser();
 	return 0;
 	}

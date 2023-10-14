@@ -11,7 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\lib\surpress_crt.cpp" />
+    <ClCompile Include="..\..\lib\unwrapped\surpress_crt.cpp">
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">None</DebugInformationFormat>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">None</DebugInformationFormat>
+    </ClCompile>
     <ClCompile Include="..\..\src\apps\board_rank\board_rank.cpp" />
     <ClCompile Include="..\..\src\apps\magic_square\magic_square.cpp" />
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_fast.cpp" />
@@ -23,7 +26,6 @@
     <ClCompile Include="..\..\src\common\sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\lib\surpress_crt.h" />
     <ClInclude Include="..\..\src\apps\tag_parser\tag_parser.h" />
     <ClInclude Include="..\..\src\common\lib_wrappers\hr_wrap.h" />
     <ClInclude Include="..\..\src\common\namespaces\IO.h" />
@@ -65,9 +67,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>..\..\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>..\..\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -75,7 +79,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <SDLCheck>true</SDLCheck>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,7 +100,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

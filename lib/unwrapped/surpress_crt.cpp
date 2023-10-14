@@ -1,16 +1,10 @@
-#include "surpress_crt.h"
-
-#include <cassert>
-#include <exception>
-#include <stdexcept>
-#include <cstring>
-#include <iostream>
-
-#include <windows.h>
-
 /*
-    Call of surpress_crt()
-    Bypasses into breakpoints next MSVC messages:
+    MSVC tends to show Abort Retry Ignore message on misc errors
+    where you would like to step on a breakpoint directly
+
+    This cpp tries to fix this and to bypass into breakpoint.
+
+    Fixes next MSVC messages:
 
     -------------------------- -
     Microsoft Visual C++ Runtime Library
@@ -50,6 +44,17 @@
 */
 
 
+#include "surpress_crt.h"
+
+#include <cassert>
+#include <exception>
+#include <stdexcept>
+#include <cstring>
+#include <iostream>
+
+#include <windows.h>
+
+
 int __cdecl CrtDbgHook(int nReportType, char* szMsg, int* pnRet)
 	{
 	// void (*jump_back_to_return)(void) = (void (*)())pnRet;
@@ -64,24 +69,23 @@ int __cdecl CrtDbgHook(int nReportType, char* szMsg, int* pnRet)
 	// asserts will exit() silent without this
 	// throw std::runtime_error(szMsg);
 	
-	// TODO
-	// If you exclude this file from your code, breakpoint will be unwinded above as desired!
+	// To prevent MSVC entering _CrtDbgBreak(),
+	// 1) disable symbols load
+	// 2) enable "Just My Code"
+	// 3) Set specifically for this cpp:
+	//      Debug information format -> None
+	
 	if (nReportType == 1)
 		_CrtDbgBreak(pnRet);
 		
 	// Abort, Retry, Ignore dialog will not be displayed
-	return false;
+	return true;
 	}
 
 void surpress_crt()
 	{
-	// Note: to prevent MSVC entering _CrtDbgBreak(); disable symbols load and enable "Just My Code"
-	
 	_CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE | _CRTDBG_MODE_DEBUG);
 	_CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
-	
-	// _CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_FILE | _CRTDBG_MODE_WNDW);
-	// _CrtSetReportFile(_CRT_ERROR, _CRTDBG_FILE_STDERR);
 	
 	_CrtSetReportHook2(_CRT_RPTHOOK_INSTALL, CrtDbgHook);
 	}
