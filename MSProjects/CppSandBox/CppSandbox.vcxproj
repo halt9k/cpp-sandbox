@@ -11,29 +11,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\board_rank\board_rank.cpp" />
-    <ClCompile Include="..\magic_square\magic_square.cpp" />
-    <ClCompile Include="..\matrix_exclude\matrix_exclude_fast.cpp" />
-    <ClCompile Include="..\matrix_exclude\matrix_exclude_readable_debug.cpp" />
-    <ClCompile Include="..\shared\Arr.cpp" />
-    <ClCompile Include="..\shared\IO.cpp" />
-    <ClCompile Include="..\shared\Str.cpp" />
-    <ClCompile Include="..\shared\surpress_crt.cpp" />
-    <ClCompile Include="..\tag_parser\tag_parser.cpp" />
+    <ClCompile Include="..\..\lib\surpress_crt.cpp" />
+    <ClCompile Include="..\..\src\apps\board_rank\board_rank.cpp" />
+    <ClCompile Include="..\..\src\apps\magic_square\magic_square.cpp" />
+    <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_fast.cpp" />
+    <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_readable_debug.cpp" />
+    <ClCompile Include="..\..\src\apps\tag_parser\tag_parser.cpp" />
+    <ClCompile Include="..\..\src\common\namespaces\IO.cpp" />
+    <ClCompile Include="..\..\src\common\namespaces\Str.cpp" />
+    <ClCompile Include="..\..\src\common\namespaces\Vec.cpp" />
+    <ClCompile Include="..\..\src\common\sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\shared\Arr.h" />
-    <ClInclude Include="..\shared\IO.h" />
-    <ClInclude Include="..\shared\stdc++.h" />
-    <ClInclude Include="..\shared\Str.h" />
-    <ClInclude Include="..\shared\surpress_crt.h" />
+    <ClInclude Include="..\..\lib\surpress_crt.h" />
+    <ClInclude Include="..\..\src\apps\tag_parser\tag_parser.h" />
+    <ClInclude Include="..\..\src\common\lib_wrappers\hr_wrap.h" />
+    <ClInclude Include="..\..\src\common\namespaces\IO.h" />
+    <ClInclude Include="..\..\src\common\namespaces\Str.h" />
+    <ClInclude Include="..\..\src\common\namespaces\Vec.h" />
+    <ClInclude Include="..\..\src\common\rename_main.h" />
+    <ClInclude Include="..\..\src\common\sandbox.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{a0f3455f-aeb1-4abe-9829-d37c58798566}</ProjectGuid>
-    <RootNamespace>CppSolutions</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <RootNamespace>CppSanbox</RootNamespace>
+    <ProjectName>CppSandbox</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -68,16 +72,18 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <SDLCheck>true</SDLCheck>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EntryPointSymbol>
       </EntryPointSymbol>
+      <ForceSymbolReferences>
+      </ForceSymbolReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -88,9 +94,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\shared</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -99,6 +105,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EntryPointSymbol>
       </EntryPointSymbol>
+      <ForceSymbolReferences>
+      </ForceSymbolReferences>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

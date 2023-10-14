@@ -14,7 +14,7 @@ void Str::safe_erase(string& str, int pos, string sub_str)
 	}
 
 
-VecStr Str::split(const string& str, string delims)
+VStr Str::split(const string& str, string delims)
 	{
 	string str_copy = str;
 	
@@ -26,7 +26,7 @@ VecStr Str::split(const string& str, string delims)
 		for (auto& delim : delims)
 			replace(str_copy.begin(), str_copy.end(), delim, separator);
 			
-	VecStr tokens;
+	VStr tokens;
 	
 	string::size_type start = 0;
 	

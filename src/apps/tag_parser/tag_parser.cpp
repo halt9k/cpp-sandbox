@@ -1,20 +1,22 @@
-#include "stdc++.h"
 #include <cassert>
 #include <sstream>
 
+#include "hr_wrap.h"
 #include "surpress_crt.h"
+#include "sandbox.h"
+
 #include "Str.h"
-#include "Arr.h"
+#include "Vec.h"
 #include "IO.h"
 
 
-typedef map<string, string> DictStr;
+typedef std::map<string, string> DictStr;
 
 
 void parse(string& line, DictStr& dict_str, string& cur_path)
 	{
 	assert(line.size() > 2);
-	VecStr words = Str::split(line, " =");
+	VStr words = Str::split(line, " =");
 	assert(words.size() > 0);
 	
 	string& tag = words.front();
@@ -59,9 +61,9 @@ void parse(string& line, DictStr& dict_str, string& cur_path)
 
 void tag_parser()
 	{
-	VecStr lines = IO::read_text_input("../test/tag_parser/in_5.txt");
+	VStr lines = IO::read_text_input("../test/tag_parser/in_5.txt");
 	
-	VecInt inputs = Arr::str_to_int(Str::split(lines[0]));
+	VInt inputs = Vec::str_to_int(Str::split(lines[0]));
 	int N = inputs[0];
 	int Q = inputs[1];
 	
@@ -74,7 +76,7 @@ void tag_parser()
 		parse(lines[x], dict_str, cur_path);
 		}
 		
-	VecStr out_lines;
+	VStr out_lines;
 	FOR(x, N + 1, N + Q)
 		{
 		string req = lines[x];
@@ -94,5 +96,5 @@ int main()
 	surpress_crt();
 	
 	tag_parser();
-	return getwchar();
+	return 0;
 	}

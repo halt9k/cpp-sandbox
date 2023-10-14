@@ -1,16 +1,18 @@
-#include "stdc++.h"
 #include <functional>
-#include <cassert>
-#include <iomanip>
 
-#include "Arr.h"
+#include "hr_wrap.h"
+#include "sandbox.h"
+
+#include "Vec.h"
 #include "Str.h"
 #include "IO.h"
 
-
-using namespace std;
 using namespace Str;
 
+// TODO redefine to improve
+using std::ofstream;
+using std::ifstream;
+#define cin fin
 
 /*
     Complete the 'climbingLeaderboard' function below.
@@ -64,9 +66,7 @@ vector<int> climbingLeaderboard(vector<int> prev_scores, vector<int> new_scores)
 
 #pragma warning(disable: 4996)
 
-#define cin fin
-// int main_board_rank()
-int main()
+void board_rank()
 	{
 	string out_f = ".\\out.txt";
 	
@@ -135,6 +135,11 @@ int main()
 	fin.close();
 	
 	IO::open_dir(out_f);
-	
+	}
+
+
+int main()
+	{
+	board_rank();
 	return 0;
 	}

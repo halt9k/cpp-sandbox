@@ -1,7 +1,6 @@
 #pragma once
 
 // <bits/stdc++.h> de remplacement pour clang
-
 // https://gcc.gnu.org/git/?p=gcc.git;a=blob;f=libstdc%2B%2B-v3/include/precompiled/stdc%2B%2B.h;h=adcd7bf312c849dffcaca871f91c4b12c9edcb29;hb=HEAD
 
 
@@ -29,5 +28,3 @@
 #include <unordered_map>
 #include <numeric>
 #include <array>
-
-using namespace std;

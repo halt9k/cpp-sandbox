@@ -1,29 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <limits.h>
-using namespace std;
+#include "hr_wrap.h"
+#include "sandbox.h"
 
-using ints = vector<int>;
-using ints2d = vector<vector<int>>;
-
-bool vec_contains(ints& v, int elem)
-	{
-	return std::find(v.begin(), v.end(), elem) != v.end();
-	}
-void vec_add_unique(ints& arr, int n)
-	{
-	if (!vec_contains(arr, n))
-		arr.push_back(n);
-	}
+#include "Vec.h"
 
 
-int count_safe(ints2d& arr, int min, int max)
+int count_safe(VVInt& arr, int min, int max)
 	{
 	int n = arr.size();
 	int m = n > 0 ? m = arr[0].size() : 0;
 	
-	ints ex_cols, ex_rows;
+	VInt ex_cols, ex_rows;
 	for (int y = 0; y < n; y++)
 		{
 		for (int x = 0; x < m; x++)
@@ -32,8 +18,8 @@ int count_safe(ints2d& arr, int min, int max)
 			
 			if (v == max || v == min)
 				{
-				vec_add_unique(ex_cols, x);
-				vec_add_unique(ex_rows, y);
+				Vec::add_unique(ex_cols, x);
+				Vec::add_unique(ex_rows, y);
 				}
 			}
 			
@@ -44,12 +30,12 @@ int count_safe(ints2d& arr, int min, int max)
 	}
 
 
-void read_test_input(ints2d& arr, int& min, int& max)
+void read_test_input(VVInt& arr, int& min, int& max)
 	{
 	int n, m;
 	cin >> n >> m;
 	
-	arr = ints2d(n, ints(m));
+	arr = VVInt(n, VInt(m));
 	min = INT_MAX;
 	max = -1;
 	
@@ -74,10 +60,12 @@ int main()
 	
 	for (int _i = 0; _i < test_count; _i++)
 		{
-		ints2d arr;
+		VVInt arr;
 		read_test_input(arr, min, max);
 		
 		int _count = count_safe(arr, min, max);
 		cout << _count << endl;
 		}
+		
+	return 0;
 	}

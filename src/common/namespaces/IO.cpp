@@ -1,16 +1,16 @@
 #include <filesystem>
-#include <cassert>
 
 #include <windows.h>
+
+#include "hr_wrap.h"
 
 #include "IO.h"
 #include "Str.h"
 
 
-
-VecStr IO::read_input()
+VStr IO::read_input()
 	{
-	VecStr result;
+	VStr result;
 	
 	string line;
 	while (getline(cin, line))
@@ -20,12 +20,13 @@ VecStr IO::read_input()
 
 
 // TODO improve
-VecStr IO::read_text_input(string fname)
+VStr IO::read_text_input(string fname)
 	{
-	assert(filesystem::exists(fname));
 	
-	VecStr result;
-	ifstream fin(fname);
+	assert(std::filesystem::exists(fname));
+	
+	VStr result;
+	std::ifstream fin(fname);
 	string line;
 	
 	while (getline(fin, line))
@@ -37,10 +38,10 @@ VecStr IO::read_text_input(string fname)
 	}
 
 
-void IO::write_text_output(string fname, VecStr& lines)
+void IO::write_text_output(string fname, VStr& lines)
 	{
 	// ofstream fout("./out/out.txt");
-	ofstream fout(fname);
+	std::ofstream fout(fname);
 	
 	for (auto& line : lines)
 		{

@@ -1,12 +1,14 @@
-#include "stdc++.h"
 #include <functional>
-#include <cassert>
-#include <iomanip>
 
-#include "Arr.h"
+#include "hr_wrap.h"
+#include "sandbox.h"
+
+#include "Vec.h"
 #include "Str.h"
 
-
+// TODO redefine to improve
+using std::ofstream;
+using std::ifstream;
 
 
 /*
@@ -25,7 +27,7 @@ struct Pt
 typedef vector<Pt> ArrPts;
 
 
-ArrPts get_abs_max_pts(VecVecInt nums)
+ArrPts get_abs_max_pts(VVInt nums)
 	{
 	int abs_max = abs(nums[0][0]);
 	
@@ -57,7 +59,7 @@ int is_sup_diag(int x, int y)
 	}
 
 
-int vsum(VecInt& arr)
+int vsum(VInt& arr)
 	{
 	return accumulate(arr.begin(), arr.end(), 0);
 	}
@@ -65,9 +67,9 @@ int vsum(VecInt& arr)
 
 struct LineSums
 	{
-	VecInt rows = VecInt(3);
-	VecInt cols = VecInt(3);
-	VecVecInt sq;
+	VInt rows = VInt(3);
+	VInt cols = VInt(3);
+	VVInt sq;
 	int diag_m = 0, diag_r = 0;
 	
 	int& operator[](int id)
@@ -75,7 +77,7 @@ struct LineSums
 		return id < 3 ? rows[id] : cols[id - 3];
 		}
 		
-	void calc_from(VecVecInt& m_sq)
+	void calc_from(VVInt& m_sq)
 		{
 		sq = m_sq;
 		FOR_XY(0, 2, 0, 2)
@@ -111,7 +113,7 @@ struct LineSums
 	};
 
 
-void calc_diffs(LineSums line_sums, VecVecInt& diff_sq, VecVecInt& diff_sq_abs, int try_magic_n)
+void calc_diffs(LineSums line_sums, VVInt& diff_sq, VVInt& diff_sq_abs, int try_magic_n)
 	{
 	FOR_XY(0, 2, 0, 2)
 		{
@@ -145,7 +147,7 @@ template <typename T> int sgn(T val)
 	}
 
 
-int try_fix(VecVecInt nums, int step, int initial_diff, int target_magic_n, VecVecInt& final_sq)
+int try_fix(VVInt nums, int step, int initial_diff, int target_magic_n, VVInt& final_sq)
 	{
 	final_sq = nums;
 	
@@ -154,8 +156,8 @@ int try_fix(VecVecInt nums, int step, int initial_diff, int target_magic_n, VecV
 	line_sums.calc_from(nums);
 	//print_sq(nums, line_sums);
 	
-	VecVecInt diff_sq(3, VecInt(3));
-	VecVecInt diff_sq_abs(3, VecInt(3));
+	VVInt diff_sq(3, VInt(3));
+	VVInt diff_sq_abs(3, VInt(3));
 	calc_diffs(line_sums, diff_sq, diff_sq_abs, target_magic_n);
 	
 	// cout << "Diffs: " << endl;
@@ -186,7 +188,7 @@ int try_fix(VecVecInt nums, int step, int initial_diff, int target_magic_n, VecV
 			}
 			
 		// cout << "Selected: " << pt.x << " " << pt.y << endl;
-		VecVecInt next_nums = nums;
+		VVInt next_nums = nums;
 		next_nums[pt.y][pt.x] -= sgn(diff_sq[pt.y][pt.x]);
 		int fin_step = try_fix(next_nums, step + 1, initial_diff, target_magic_n, final_sq);
 		if (fin_step > -1)
@@ -207,7 +209,7 @@ int formingMagicSquare(vector<vector<int>> s)
 	line_sums.calc_from(s);
 	line_sums.print();
 	
-	VecVecInt final_sq = s;
+	VVInt final_sq = s;
 	int min_steps = -1;
 	for (int tgt_m = 3; tgt_m < 3 * 9; ++tgt_m)
 		{
@@ -222,7 +224,7 @@ int formingMagicSquare(vector<vector<int>> s)
 	}
 
 
-int main_magic_square()
+int main()
 	{
 	// ofstream fout("./out/out.txt");
 	ofstream fout;
