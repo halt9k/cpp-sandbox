@@ -7,6 +7,9 @@
     <ClCompile Include="..\..\src\apps\tag_parser\test\test_tag_parser.cpp">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\run_tests.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
