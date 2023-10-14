@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <RunSettings>
+
+  <RunConfiguration>
+    <!-- Use 0 for maximum process-level parallelization. This does not force parallelization within the test DLL (on the thread-level). You can also change it from the Test menu; choose "Run tests in parallel". Unchecked = 1 (only 1), checked = 0 (max). -->
+    <MaxCpuCount>4</MaxCpuCount>
+    <!-- Path relative to directory that contains .runsettings file-->
+    <ResultsDirectory>.\output</ResultsDirectory>
+
+    <!-- Path to Test Adapters -->
+    <TestAdaptersPaths>%SystemDrive%\Temp\foo;%SystemDrive%\Temp\bar</TestAdaptersPaths>
+
+    <!-- Specify timeout in milliseconds. A valid value should be greater than 0 -->
+    <TestSessionTimeout>10000</TestSessionTimeout>
+
+    <TreatNoTestsAsError>true</TreatNoTestsAsError>
+  </RunConfiguration>
+
+      <Catch2Adapter>
+          <FilenameFilter>^test_</FilenameFilter>
+      </Catch2Adapter>
+  </RunSettings>

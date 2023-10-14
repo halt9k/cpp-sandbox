@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppSandbox", "MSProjects\CppSandBox\CppSandbox.vcxproj", "{A0F3455F-AEB1-4ABE-9829-D37C58798566}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppSandboxTest", "MSProjects\CppSandboxTest\CppSandboxTest.vcxproj", "{39934BCE-9C32-4F50-B5E8-129166F9D0D1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppSandboxCTest", "MSProjects\CppSandboxCTest\CppSandboxCTest.vcxproj", "{6E5F6BA5-5376-4A6B-95C6-25FD2191BC49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A0F3455F-AEB1-4ABE-9829-D37C58798566}.Debug|x64.Build.0 = Debug|x64
 		{A0F3455F-AEB1-4ABE-9829-D37C58798566}.Release|x64.ActiveCfg = Release|x64
 		{A0F3455F-AEB1-4ABE-9829-D37C58798566}.Release|x64.Build.0 = Release|x64
-		{39934BCE-9C32-4F50-B5E8-129166F9D0D1}.Debug|x64.ActiveCfg = Debug|x64
-		{39934BCE-9C32-4F50-B5E8-129166F9D0D1}.Debug|x64.Build.0 = Debug|x64
-		{39934BCE-9C32-4F50-B5E8-129166F9D0D1}.Release|x64.ActiveCfg = Release|x64
-		{39934BCE-9C32-4F50-B5E8-129166F9D0D1}.Release|x64.Build.0 = Release|x64
+		{6E5F6BA5-5376-4A6B-95C6-25FD2191BC49}.Debug|x64.ActiveCfg = Debug|x64
+		{6E5F6BA5-5376-4A6B-95C6-25FD2191BC49}.Debug|x64.Build.0 = Debug|x64
+		{6E5F6BA5-5376-4A6B-95C6-25FD2191BC49}.Release|x64.ActiveCfg = Release|x64
+		{6E5F6BA5-5376-4A6B-95C6-25FD2191BC49}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

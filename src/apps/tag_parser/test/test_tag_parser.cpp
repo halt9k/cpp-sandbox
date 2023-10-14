@@ -1,21 +1,17 @@
-// #define CATCH_CONFIG_MAIN
-// #include <catch.hpp>
-
-#include "pch.h"
+#include <catch.hpp>
 
 #include "../tag_parser.h"
 
-// TEST_CASE("set_duplicates", "[util]")
-
-TEST(TestCaseName1, TestName1)
+TEST_CASE("set_duplicates1", "[util]")
 	{
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	
+	REQUIRE(1 == 1);
+	REQUIRE(true);
 	}
 
 
-TEST(set_duplicates_1, util_1)
+TEST_CASE("set_duplicates_1", "[util_1]")
 	{
 	tag_parser();
-	EXPECT_TRUE(true);
+	REQUIRE(true);
 	}
