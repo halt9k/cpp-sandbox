@@ -7,12 +7,6 @@
     <ClCompile Include="..\..\src\apps\tag_parser\test\test_tag_parser.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\run_tests.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
@@ -21,10 +15,18 @@
     <Filter Include="test">
       <UniqueIdentifier>{d57c8941-4298-46b0-b78b-550176aecb83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{d1d98577-52ee-45d8-bc49-270170fc2b6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\test\lib\pch.h">
       <Filter>lib</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

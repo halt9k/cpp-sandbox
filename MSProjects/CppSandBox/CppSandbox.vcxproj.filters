@@ -19,25 +19,25 @@
     <Filter Include="Source Files\apps">
       <UniqueIdentifier>{995f4095-799c-4d59-9637-94988f31c79b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\libs">
-      <UniqueIdentifier>{674953a5-817e-447f-a45b-634e6e3c63b6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\lib">
       <UniqueIdentifier>{79733b76-8549-4581-9da9-65754bc88bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib">
+      <UniqueIdentifier>{674953a5-817e-447f-a45b-634e6e3c63b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\common\namespaces\IO.cpp">
-      <Filter>Source Files\libs</Filter>
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\sandbox.cpp">
-      <Filter>Source Files\libs</Filter>
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\namespaces\Str.cpp">
-      <Filter>Source Files\libs</Filter>
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\namespaces\Vec.cpp">
-      <Filter>Source Files\libs</Filter>
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\apps\board_rank\board_rank.cpp">
       <Filter>Source Files\apps</Filter>
@@ -55,7 +55,7 @@
       <Filter>Source Files\apps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\lib\surpress_crt.cpp">
-      <Filter>Source Files\libs</Filter>
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
