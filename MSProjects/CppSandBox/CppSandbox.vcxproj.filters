@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -13,75 +9,90 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\apps">
+    <Filter Include="apps">
       <UniqueIdentifier>{9f72312e-5970-4f65-90f7-adf3a9747630}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\apps">
-      <UniqueIdentifier>{995f4095-799c-4d59-9637-94988f31c79b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\lib">
+    <Filter Include="lib">
       <UniqueIdentifier>{79733b76-8549-4581-9da9-65754bc88bcc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib">
-      <UniqueIdentifier>{674953a5-817e-447f-a45b-634e6e3c63b6}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{93974241-0276-408a-adcf-3fd61df911ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib\unwrapped">
-      <UniqueIdentifier>{15091cd2-9b8d-4a16-9824-6a8001f7ff4b}</UniqueIdentifier>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{3bac4e09-add4-4340-b238-79d6fdcf8809}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common\namespaces">
+      <UniqueIdentifier>{c108e516-1cee-4d50-977d-c7305202b55e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\hr_raw">
+      <UniqueIdentifier>{c82ff76c-3122-435e-bff3-b5c0b1700299}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\common\namespaces\IO.cpp">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\common\sandbox.cpp">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\common\namespaces\Str.cpp">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\common\namespaces\Vec.cpp">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\apps\board_rank\board_rank.cpp">
-      <Filter>Source Files\apps</Filter>
+      <Filter>apps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\apps\magic_square\magic_square.cpp">
-      <Filter>Source Files\apps</Filter>
+      <Filter>apps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_fast.cpp">
-      <Filter>Source Files\apps</Filter>
+      <Filter>apps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_readable_debug.cpp">
-      <Filter>Source Files\apps</Filter>
+      <Filter>apps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\apps\tag_parser\tag_parser.cpp">
-      <Filter>Source Files\apps</Filter>
+      <Filter>apps</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\lib\unwrapped\surpress_crt.cpp">
-      <Filter>Source Files\lib\unwrapped</Filter>
+    <ClCompile Include="..\..\src\common\namespaces\FIO.cpp">
+      <Filter>src\common\namespaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\namespaces\Str.cpp">
+      <Filter>src\common\namespaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\namespaces\Vec.cpp">
+      <Filter>src\common\namespaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\sandbox.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\surpress_crt.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\namespaces\Err.cpp">
+      <Filter>src\common\namespaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\common\namespaces\IO.h">
-      <Filter>Header Files\lib</Filter>
+    <ClInclude Include="..\..\src\apps\tag_parser\tag_parser.h">
+      <Filter>apps</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\common\rename_main.h">
-      <Filter>Header Files\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\common\sandbox.h">
-      <Filter>Header Files\lib</Filter>
+    <ClInclude Include="..\..\src\common\namespaces\FIO.h">
+      <Filter>src\common\namespaces</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\namespaces\Str.h">
-      <Filter>Header Files\lib</Filter>
+      <Filter>src\common\namespaces</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\namespaces\Vec.h">
-      <Filter>Header Files\lib</Filter>
+      <Filter>src\common\namespaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\apps\tag_parser\tag_parser.h">
-      <Filter>Header Files\apps</Filter>
+    <ClInclude Include="..\..\src\common\rename_main.h">
+      <Filter>src\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\common\lib_wrappers\hr_wrap.h">
-      <Filter>Header Files\lib</Filter>
+    <ClInclude Include="..\..\src\common\sandbox_adapter.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\hr_raw\stdc++.h">
+      <Filter>lib\hr_raw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\hr_extended.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\surpress_crt.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\namespaces\Err.h">
+      <Filter>src\common\namespaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

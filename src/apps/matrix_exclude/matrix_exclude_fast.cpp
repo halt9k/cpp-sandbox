@@ -1,15 +1,13 @@
-#include "hr_wrap.h"
-#include "sandbox.h"
-
-#include "Vec.h"
+#include "hr_extended.h"
+#include "sandbox_adapter.h"
 
 
-int count_safe(VVInt& arr, int min, int max)
+int count_safe(VVInts& arr, int min, int max)
 	{
 	int n = arr.size();
 	int m = n > 0 ? m = arr[0].size() : 0;
 	
-	VInt ex_cols, ex_rows;
+	VInts ex_cols, ex_rows;
 	for (int y = 0; y < n; y++)
 		{
 		for (int x = 0; x < m; x++)
@@ -30,12 +28,12 @@ int count_safe(VVInt& arr, int min, int max)
 	}
 
 
-void read_test_input(VVInt& arr, int& min, int& max)
+void read_test_input(VVInts& arr, int& min, int& max)
 	{
 	int n, m;
 	cin >> n >> m;
 	
-	arr = VVInt(n, VInt(m));
+	arr = VVInts(n, VInts(m));
 	min = INT_MAX;
 	max = -1;
 	
@@ -60,7 +58,7 @@ int main()
 	
 	for (int _i = 0; _i < test_count; _i++)
 		{
-		VVInt arr;
+		VVInts arr;
 		read_test_input(arr, min, max);
 		
 		int _count = count_safe(arr, min, max);

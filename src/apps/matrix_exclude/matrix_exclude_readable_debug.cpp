@@ -1,13 +1,12 @@
-#include "hr_wrap.h"
-#include "sandbox.h"
+#include "hr_extended.h"
+#include "sandbox_adapter.h"
 
-#include "Vec.h"
 
 bool DEBUG = false;
 struct elem { int x = -1, y = -1;};
 
 
-void print_arr(VVInt& arr)
+void print_arr(VVInts& arr)
 	{
 	for (auto& row : arr)
 		{
@@ -18,7 +17,7 @@ void print_arr(VVInt& arr)
 	}
 
 
-void print_arr(VInt& arr)
+void print_arr(VInts& arr)
 	{
 	for (auto& l : arr)
 		cout << l << " ";
@@ -26,7 +25,7 @@ void print_arr(VInt& arr)
 	}
 
 
-int count_safe(VVInt& arr, elem& el_min, elem& el_max, int min, int max)
+int count_safe(VVInts& arr, elem& el_min, elem& el_max, int min, int max)
 	{
 	int n = arr.size();
 	
@@ -34,10 +33,10 @@ int count_safe(VVInt& arr, elem& el_min, elem& el_max, int min, int max)
 	if (n > 0)
 		m = arr[0].size();
 		
-	VInt ex_cols, ex_rows;
+	VInts ex_cols, ex_rows;
 	for (int y = 0; y < n; y++)
 		{
-		VInt& row = arr[y];
+		VInts& row = arr[y];
 		
 		for (int x = 0; x < m; x++)
 			{
@@ -66,12 +65,12 @@ int count_safe(VVInt& arr, elem& el_min, elem& el_max, int min, int max)
 	}
 
 
-void run_test_input(VVInt& arr, elem& el_min, elem& el_max, int& min, int& max)
+void run_test_input(VVInts& arr, elem& el_min, elem& el_max, int& min, int& max)
 	{
 	int n, m;
 	cin >> n >> m;
 	
-	arr = VVInt(n, VInt(m));
+	arr = VVInts(n, VInts(m));
 	el_min.x = 1;
 	el_min.y = 1;
 	min = INT_MAX;
@@ -114,7 +113,7 @@ int main()
 		if (DEBUG)
 			printf("test# %i \n", test);
 			
-		VVInt arr;
+		VVInts arr;
 		run_test_input(arr, el_min, el_max, min, max);
 		
 		int safe = count_safe(arr, el_min, el_max, min, max);

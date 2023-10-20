@@ -1,10 +1,14 @@
 #pragma once
-// file to include only in hr solutions
+// optional file with common simplifications for hr solutions
 
-#include "unwrapped/stdc++.h"
+#include "hr_raw/stdc++.h"
 
 #include <iomanip>
 #include <cassert>
+
+#include "Vec.h"
+#include "Str.h"
+#include "FIO.h"
 
 
 // common shortcuts

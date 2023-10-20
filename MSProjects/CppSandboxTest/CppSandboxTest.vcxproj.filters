@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\test\lib\pch.cpp">
-      <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\apps\tag_parser\test\test_tag_parser.cpp">
+    <ClCompile Include="..\..\test\run_tests.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\run_tests.cpp">
+    <ClCompile Include="..\..\lib\test_helpers\pch.cpp">
+      <Filter>lib\test_helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\discovery\io_fixture.cpp">
+      <Filter>test\discovery</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_apps.cpp">
       <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -21,10 +24,19 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{d1d98577-52ee-45d8-bc49-270170fc2b6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\test_helpers">
+      <UniqueIdentifier>{29c95fbb-1b69-4899-84ba-a0ac436c4eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test\discovery">
+      <UniqueIdentifier>{83178443-b242-4ebd-bcc7-dc8ac37007d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\test\lib\pch.h">
-      <Filter>lib</Filter>
+    <ClInclude Include="..\..\lib\test_helpers\pch.h">
+      <Filter>lib\test_helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\discovery\io_fixture.h">
+      <Filter>test\discovery</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

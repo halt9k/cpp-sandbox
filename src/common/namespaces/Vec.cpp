@@ -1,6 +1,11 @@
-// #include <iomanip>
+#include <iterator>
+#include <algorithm>
 
 #include "Vec.h"
+
+using std::vector;
+using std::string;
+
 
 template<class T>
 void Vec::print(vector<T>& arr)
@@ -12,8 +17,6 @@ void Vec::print(vector<T>& arr)
 
 
 template<class T>
-
-
 void Vec::print_2d(vector<vector<T>>& arr_2d)
 	{
 	for (auto& arr : arr_2d)
@@ -21,25 +24,25 @@ void Vec::print_2d(vector<vector<T>>& arr_2d)
 	}
 
 
-VInt Vec::str_to_int(VStr strs)
+VInts Vec::str_to_int(VStrs strs)
 	{
-	VInt result;
+	VInts result;
 	result.reserve(strs.size());
 	
-	transform(strs.begin(), strs.end(), back_inserter(result),
+	transform(strs.begin(), strs.end(), std::back_inserter(result),
 	[&](string s) { return stoi(s); }
 			 );
 	return result;
 	}
 
 
-bool Vec::contains(VInt& v, int elem)
+bool Vec::contains(VInts& v, int elem)
 	{
 	return std::find(v.begin(), v.end(), elem) != v.end();
 	}
 
 
-void Vec::add_unique(VInt& arr, int n)
+void Vec::add_unique(VInts& arr, int n)
 	{
 	if (!contains(arr, n))
 		arr.push_back(n);

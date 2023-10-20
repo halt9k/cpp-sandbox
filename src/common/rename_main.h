@@ -3,6 +3,8 @@
 // multiple examples in same project simultaneously tested
 // and easy copy-paste to/from without renaming main()
 
+#include <vector>
+
 // do not delete 2nd line
 #define STR(x) XSTR(x)
 #define XSTR(x) #x

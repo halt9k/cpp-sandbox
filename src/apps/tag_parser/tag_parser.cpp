@@ -1,21 +1,15 @@
-#include <cassert>
 #include <sstream>
 
-#include "hr_wrap.h"
-#include "sandbox.h"
+#include "hr_extended.h"
+#include "sandbox_adapter.h"
 
-#include "Str.h"
-#include "Vec.h"
-#include "IO.h"
-
-
-typedef std::map<string, string> DictStr;
+using DictStr = std::map<string, string>;
 
 
 void parse(string& line, DictStr& dict_str, string& cur_path)
 	{
 	assert(line.size() > 2);
-	VStr words = Str::split(line, " =");
+	VStrs words = Str::split(line, " =");
 	assert(words.size() > 0);
 	
 	string& tag = words.front();
@@ -60,9 +54,9 @@ void parse(string& line, DictStr& dict_str, string& cur_path)
 
 void tag_parser()
 	{
-	VStr lines = IO::read_text_input("../test/tag_parser/in_5.txt");
+	VStrs lines = FIO::cin_read_lines();
 	
-	VInt inputs = Vec::str_to_int(Str::split(lines[0]));
+	VInts inputs = Vec::str_to_int(Str::split(lines[0]));
 	int N = inputs[0];
 	int Q = inputs[1];
 	
@@ -75,7 +69,7 @@ void tag_parser()
 		parse(lines[x], dict_str, cur_path);
 		}
 		
-	VStr out_lines;
+	VStrs out_lines;
 	FOR(x, N + 1, N + Q)
 		{
 		string req = lines[x];
@@ -86,7 +80,7 @@ void tag_parser()
 			out_lines.push_back("Not Found!");
 		}
 		
-	IO::write_text_output("test/tag_parser/out_1.txt", out_lines);
+	FIO::cout_output_lines(out_lines);
 	}
 
 

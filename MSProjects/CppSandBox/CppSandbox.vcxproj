@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\lib\unwrapped\surpress_crt.cpp">
+    <ClCompile Include="..\..\lib\surpress_crt.cpp">
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">None</DebugInformationFormat>
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">None</DebugInformationFormat>
     </ClCompile>
@@ -20,19 +20,23 @@
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_fast.cpp" />
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_readable_debug.cpp" />
     <ClCompile Include="..\..\src\apps\tag_parser\tag_parser.cpp" />
-    <ClCompile Include="..\..\src\common\namespaces\IO.cpp" />
+    <ClCompile Include="..\..\src\common\namespaces\Err.cpp" />
+    <ClCompile Include="..\..\src\common\namespaces\FIO.cpp" />
     <ClCompile Include="..\..\src\common\namespaces\Str.cpp" />
     <ClCompile Include="..\..\src\common\namespaces\Vec.cpp" />
-    <ClCompile Include="..\..\src\common\sandbox.cpp" />
+    <ClCompile Include="..\..\src\sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\lib\hr_raw\stdc++.h" />
+    <ClInclude Include="..\..\lib\surpress_crt.h" />
     <ClInclude Include="..\..\src\apps\tag_parser\tag_parser.h" />
-    <ClInclude Include="..\..\src\common\lib_wrappers\hr_wrap.h" />
-    <ClInclude Include="..\..\src\common\namespaces\IO.h" />
+    <ClInclude Include="..\..\src\common\hr_extended.h" />
+    <ClInclude Include="..\..\src\common\namespaces\Err.h" />
+    <ClInclude Include="..\..\src\common\namespaces\FIO.h" />
     <ClInclude Include="..\..\src\common\namespaces\Str.h" />
     <ClInclude Include="..\..\src\common\namespaces\Vec.h" />
     <ClInclude Include="..\..\src\common\rename_main.h" />
-    <ClInclude Include="..\..\src\common\sandbox.h" />
+    <ClInclude Include="..\..\src\common\sandbox_adapter.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -79,7 +83,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <SDLCheck>true</SDLCheck>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\apps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -100,7 +104,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\common\lib_wrappers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib;..\..\src\common;..\..\src\common\namespaces;..\..\src\apps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

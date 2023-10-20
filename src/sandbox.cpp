@@ -3,8 +3,8 @@
 // #undef main
 
 
-#include "..\apps\tag_parser\tag_parser.h"
-#include "unwrapped\surpress_crt.h"
+#include "tag_parser/tag_parser.h"
+#include "surpress_crt.h"
 
 
 int main()

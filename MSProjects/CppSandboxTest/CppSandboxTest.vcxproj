@@ -25,15 +25,17 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClCompile Include="..\..\src\apps\tag_parser\test\test_tag_parser.cpp" />
-    <ClCompile Include="..\..\test\lib\pch.cpp">
+    <ClCompile Include="..\..\lib\test_helpers\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\test\discovery\io_fixture.cpp" />
     <ClCompile Include="..\..\test\run_tests.cpp" />
+    <ClCompile Include="..\..\test\test_apps.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\test\lib\pch.h" />
+    <ClInclude Include="..\..\lib\test_helpers\pch.h" />
+    <ClInclude Include="..\..\test\discovery\io_fixture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -57,7 +59,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\test\lib;..\..\lib\unwrapped\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib\test_helpers;..\..\lib;..\..\src\common\namespaces;..\..\test\discovery\;..\..\src\apps\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
@@ -65,7 +67,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>..\CppSandBox\$(IntDir)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tag_parser.obj;IO.obj;Str.obj;Vec.obj;surpress_crt.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tag_parser.obj;FIO.obj;Str.obj;Vec.obj;Err.obj;surpress_crt.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <IgnoreSpecificDefaultLibraries>
@@ -80,7 +82,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\test\lib;..\..\lib\unwrapped\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib\test_helpers;..\..\lib;..\..\src\common\namespaces;..\..\test\discovery\;..\..\src\apps\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
@@ -90,7 +92,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <AdditionalLibraryDirectories>..\CppSandBox\$(IntDir)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tag_parser.obj;IO.obj;Str.obj;Vec.obj;surpress_crt.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tag_parser.obj;FIO.obj;Str.obj;Vec.obj;Err.obj;surpress_crt.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <IgnoreSpecificDefaultLibraries>

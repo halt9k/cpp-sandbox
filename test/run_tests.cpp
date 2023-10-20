@@ -1,4 +1,7 @@
 #include "pch.h"
+#include <windows.h>
+#include <stdexcept>
+
 #include "surpress_crt.h"
 
 int main(int argc, char** argv)

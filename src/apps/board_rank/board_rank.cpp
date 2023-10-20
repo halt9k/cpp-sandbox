@@ -1,11 +1,7 @@
 #include <functional>
 
-#include "hr_wrap.h"
-#include "sandbox.h"
-
-#include "Vec.h"
-#include "Str.h"
-#include "IO.h"
+#include "hr_extended.h"
+#include "sandbox_adapter.h"
 
 using namespace Str;
 
@@ -29,9 +25,9 @@ using std::ifstream;
 // new_scores          5 25 50 120             idn<-
 // new_ranks       ? ?  ?  ?
 
-vector<int> climbingLeaderboard(vector<int> prev_scores, vector<int> new_scores)
+VInts climbingLeaderboard(VInts prev_scores, VInts new_scores)
 	{
-	vector<int> new_ranks(new_scores.size());
+	VInts new_ranks(new_scores.size());
 	
 	int idp = 0, idn = new_scores.size() - 1, idp_rank = 1;
 	int max_cycles = prev_scores.size() + new_scores.size();
@@ -88,9 +84,9 @@ void board_rank()
 	string ranked_temp_temp;
 	getline(cin, ranked_temp_temp);
 	
-	vector<string> ranked_temp = split(rtrim(ranked_temp_temp));
+	VStrs ranked_temp = split(rtrim(ranked_temp_temp));
 	
-	vector<int> ranked(ranked_count);
+	VInts ranked(ranked_count);
 	
 	for (int i = 0; i < ranked_count; i++)
 		{
@@ -107,9 +103,9 @@ void board_rank()
 	string player_temp_temp;
 	getline(cin, player_temp_temp);
 	
-	vector<string> player_temp = split(rtrim(player_temp_temp));
+	VStrs player_temp = split(rtrim(player_temp_temp));
 	
-	vector<int> player(player_count);
+	VInts player(player_count);
 	
 	for (int i = 0; i < player_count; i++)
 		{
@@ -118,7 +114,7 @@ void board_rank()
 		player[i] = player_item;
 		}
 		
-	vector<int> result = climbingLeaderboard(ranked, player);
+	VInts result = climbingLeaderboard(ranked, player);
 	
 	for (size_t i = 0; i < result.size(); i++)
 		{
@@ -134,7 +130,7 @@ void board_rank()
 	fout.close();
 	fin.close();
 	
-	IO::open_dir(out_f);
+	FIO::open_windows_explorer_at(out_f);
 	}
 
 
