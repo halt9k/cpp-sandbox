@@ -21,9 +21,6 @@
     <Filter Include="test">
       <UniqueIdentifier>{d57c8941-4298-46b0-b78b-550176aecb83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{d1d98577-52ee-45d8-bc49-270170fc2b6c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="lib\test_helpers">
       <UniqueIdentifier>{29c95fbb-1b69-4899-84ba-a0ac436c4eef}</UniqueIdentifier>
     </Filter>
@@ -40,8 +37,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <Filter>Resource Files</Filter>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
