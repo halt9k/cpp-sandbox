@@ -28,6 +28,7 @@ TEST_P(RedirectAppsStdIO, AutoDetect)
 
 // MSVC 2019 internal Test Adapter has problem which allows runtime test discovery,
 // but not proper execution; alternative extension from marketplace works fine
+// Above may be incorrect: Google Test -> break on failure seems correctly breaks under debug without other extension
 INSTANTIATE_TEST_CASE_P(Apps,
 						RedirectAppsStdIO,
 						testing::ValuesIn(DiscoverApps::DiscoverAppTests(EXPECTED_APPS_DIR)));

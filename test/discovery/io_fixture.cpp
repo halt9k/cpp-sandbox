@@ -16,19 +16,17 @@ void RedirectAppsStdIO::RedirectIO(fs::path dir, fs::path file_cin, fs::path fil
 	
 	assert(fs::exists(fin));
 	
+	// redirect fin to cin
+	std::cout << "Input source will be redirected from: " << fin;
 	in_fs = std::ifstream(fin);
-	out_fs = std::ofstream(fout, std::ios_base::app);
-	
-	//redirect fin to cin
 	cin_buf = std::cin.rdbuf();
 	std::cin.rdbuf(in_fs.rdbuf());
 	
-	//redirect cout to fout
-	cout_buf = std::cout.rdbuf();
-	std::cout.rdbuf(out_fs.rdbuf());
-	
-	//TODO duplicate output to cout
-	//cout << line << endl;
+	// redirect cout to fout
+	// std::cout << "Output target will be duplicated to: " << fout;
+	// out_fs = std::ofstream(fout, std::ios_base::trunc);
+	// cout_buf = std::cout.rdbuf();
+	// std::cout.rdbuf(out_fs.rdbuf());
 	}
 
 
