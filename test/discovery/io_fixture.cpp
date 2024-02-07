@@ -17,16 +17,16 @@ void RedirectAppsStdIO::RedirectIO(fs::path dir, fs::path file_cin, fs::path fil
 	assert(fs::exists(fin));
 	
 	// redirect fin to cin
-	std::cout << "Input source will be redirected from: " << fin;
+	std::cout << "Input source will be redirected from: " << std::endl << fin << std::endl;
 	in_fs = std::ifstream(fin);
 	cin_buf = std::cin.rdbuf();
 	std::cin.rdbuf(in_fs.rdbuf());
 	
 	// redirect cout to fout
-	// std::cout << "Output target will be duplicated to: " << fout;
-	// out_fs = std::ofstream(fout, std::ios_base::trunc);
-	// cout_buf = std::cout.rdbuf();
-	// std::cout.rdbuf(out_fs.rdbuf());
+	std::cout << "Output target will be duplicated to: " << std::endl << fout;
+	out_fs = std::ofstream(fout, std::ios_base::trunc);
+	cout_buf = std::cout.rdbuf();
+	std::cout.rdbuf(out_fs.rdbuf());
 	}
 
 
@@ -87,7 +87,7 @@ bool DiscoverApps::IsGoodTestFile(fs::path file)
 		return false;
 		
 	// TODO need correct out, not just out
-	fs::path expected_out = GenCorrectOutputFName(f_name);
+	fs::path expected_out = GetCorrectOutputFName(f_name);
 	if (!fs::exists(expected_out))
 		Log::Warning("Test case missing correct output: " + f_name);
 		
@@ -95,7 +95,7 @@ bool DiscoverApps::IsGoodTestFile(fs::path file)
 	}
 
 
-fs::path DiscoverApps::GenCorrectOutputFName(fs::path in_fname)
+fs::path DiscoverApps::GetCorrectOutputFName(fs::path in_fname)
 	{
 	string fname = in_fname.string();
 	Str::replace_all(fname, TEST_FILE_PREFIX_IN, TEST_FILE_PREFIX_CORRECT_OUT, true);

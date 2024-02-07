@@ -12,5 +12,7 @@ namespace FIO
 	VStrs cin_read_lines();
 	VPaths get_files(fs::path dir);
 	void cout_output_lines(VStrs& lines);
+
+	VStrs read_file_lines(fs::path fpath);
 	void open_windows_explorer_at(std::string dirname);
 	}

@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <iostream>
+#include <fstream>
 #include <stdexcept>
 
 #include "FIO.h"
@@ -43,6 +44,41 @@ void FIO::cout_output_lines(VStrs& lines)
 	for (auto& line : lines)
 		cout << line << endl;
 	}
+
+
+class input_line
+	{
+	std::string data;
+	public:
+		friend std::istream& operator>>(std::istream& is, input_line& l)
+			{
+			std::getline(is, l.data);
+			return is;
+			}
+		operator std::string() const { return data; }
+	};
+using line_iterator = std::istream_iterator<input_line>;
+
+
+VStrs FIO::read_file_lines(fs::path fpath)
+	{
+	auto fs = std::ifstream(fpath);
+	return VStrs{ line_iterator(fs), line_iterator() };
+	}
+
+
+/*
+bool FIO::compare_text_files(fs::path f1, fs::path f2)
+	{
+	auto s1 = std::ifstream(f1);
+	auto s2 = std::ifstream(f2);
+
+	lines1 = VStrs{ line_iterator(f1), line_iterator() };
+	lines2 = VStrs{ line_iterator(f2), line_iterator() };
+	
+	return lines1 == lines2;
+	}
+*/
 
 
 void FIO::open_windows_explorer_at(string dirname)

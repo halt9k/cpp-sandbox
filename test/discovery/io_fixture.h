@@ -20,7 +20,7 @@ constexpr auto EXPECTED_TEST_FILES_DIR = "test/fixtures";
 constexpr auto TEST_FILE_EXT = ".txt";
 constexpr auto TEST_FILE_PREFIX_IN = "in_";
 constexpr auto TEST_FILE_PREFIX_OUT = "out_";
-constexpr auto TEST_FILE_PREFIX_CORRECT_OUT = "out_correct_";
+constexpr auto TEST_FILE_PREFIX_CORRECT_OUT = "expected_";
 constexpr auto APPS_DIR = "apps";
 
 
@@ -46,7 +46,7 @@ class DiscoverApps
 	{
 	public:
 		static fs::path GenOutputFName(fs::path input_fname);
-		static fs::path GenCorrectOutputFName(fs::path input_fname);
+		static fs::path GetCorrectOutputFName(fs::path input_fname);
 		
 		static fs::path GuessTestDir(string test_name);
 		static string GuessTestName(fs::path input_file);
