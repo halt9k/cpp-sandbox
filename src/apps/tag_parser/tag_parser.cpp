@@ -4,7 +4,7 @@
 #include "sandbox_adapter.h"
 
 using DictStr = std::map<string, string>;
-using string_view = std::string_view;
+using std::string_view;
 
 
 inline void push_and_erase_word(VStrs& words, string& word)
@@ -112,7 +112,7 @@ void tag_parser()
 	{
 	VStrs lines = FIO::cin_read_lines();
 
-	VInts inputs = Vec::str_to_int(Str::split(lines[0]));
+	VInts inputs = Vec::strs_to_ints(Str::split(lines[0]));
 	int N = inputs[0];
 	int Q = inputs[1];
 

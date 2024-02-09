@@ -21,11 +21,11 @@
     <Filter Include="src\common">
       <UniqueIdentifier>{3bac4e09-add4-4340-b238-79d6fdcf8809}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\common\namespaces">
-      <UniqueIdentifier>{c108e516-1cee-4d50-977d-c7305202b55e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="lib\hr_raw">
       <UniqueIdentifier>{c82ff76c-3122-435e-bff3-b5c0b1700299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\namespaces">
+      <UniqueIdentifier>{c108e516-1cee-4d50-977d-c7305202b55e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,13 +45,13 @@
       <Filter>apps</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\namespaces\FIO.cpp">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\namespaces\Str.cpp">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\namespaces\Vec.cpp">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\sandbox.cpp">
       <Filter>src</Filter>
@@ -60,7 +60,7 @@
       <Filter>lib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\common\namespaces\Err.cpp">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,13 +68,13 @@
       <Filter>apps</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\namespaces\FIO.h">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\namespaces\Str.h">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\namespaces\Vec.h">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\rename_main.h">
       <Filter>src\common</Filter>
@@ -92,7 +92,7 @@
       <Filter>lib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\common\namespaces\Err.h">
-      <Filter>src\common\namespaces</Filter>
+      <Filter>src\namespaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include <iterator>
 #include <algorithm>
+#include <numeric>
 
 #include "Vec.h"
 
@@ -24,7 +25,7 @@ void Vec::print_2d(vector<vector<T>>& arr_2d)
 	}
 
 
-VInts Vec::str_to_int(VStrs strs)
+VInts Vec::strs_to_ints(VStrs& strs)
 	{
 	VInts result;
 	result.reserve(strs.size());
@@ -32,6 +33,17 @@ VInts Vec::str_to_int(VStrs strs)
 	transform(strs.begin(), strs.end(), std::back_inserter(result),
 	[&](string s) { return stoi(s); }
 			 );
+	return result;
+	}
+
+
+string Vec::strs_to_text(VStrs& strs)
+	{
+	// return std::accumulate(strs.begin(), strs.end(), string("\n"));
+
+	string result;
+	int line_n = 1;
+	for (const auto& str : strs) result +=  std::to_string(line_n++) + " " + str + "\n";
 	return result;
 	}
 

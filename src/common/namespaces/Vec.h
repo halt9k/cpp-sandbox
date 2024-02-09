@@ -21,7 +21,8 @@ namespace Vec
 	template<class T>
 	void print_2d(vector<vector<T>>& arr_2d);
 	
-	VInts str_to_int(VStrs strs);
+	VInts strs_to_ints(VStrs& strs);
+	string strs_to_text(VStrs& strs);
 	
 	bool contains(VInts& v, int elem);
 	void add_unique(VInts& arr, int n);

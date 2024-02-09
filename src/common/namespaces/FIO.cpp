@@ -19,7 +19,15 @@ VStrs FIO::cin_read_lines()
 	
 	string line;
 	while (getline(cin, line))
+		{
+		if (line.empty())
+			{
+			Log::Warning("Input is finished due to empty line.\n\
+						 Supposed to happen only under manual input mode.\n");
+			break;
+			}
 		result.push_back(line);
+		}
 	return result;
 	}
 
