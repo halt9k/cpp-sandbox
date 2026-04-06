@@ -16,6 +16,7 @@
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|x64'">None</DebugInformationFormat>
     </ClCompile>
     <ClCompile Include="..\..\src\apps\board_rank\board_rank.cpp" />
+    <ClCompile Include="..\..\src\apps\embedded_test\embedded_test.cpp" />
     <ClCompile Include="..\..\src\apps\magic_square\magic_square.cpp" />
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_fast.cpp" />
     <ClCompile Include="..\..\src\apps\matrix_exclude\matrix_exclude_readable_debug.cpp" />

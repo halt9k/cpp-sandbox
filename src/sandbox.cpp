@@ -3,7 +3,7 @@
 // #undef main
 
 
-#include "tag_parser/tag_parser.h"
+#include "embedded_test/embedded_test.h"
 #include "surpress_crt.h"
 
 
@@ -12,7 +12,7 @@ int main()
 	surpress_crt();
 	
 	// an app to run by default
-	tag_parser();
+	embedded_test();
 	
 	return 0;
 	};
