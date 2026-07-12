@@ -54,34 +54,64 @@ void embedded_test_2(bool hood_is_working, int kitchen_pressure, int hood_pressu
 	cout << "hf:  " << hood_speed_frequency << " kp:   " << kitchen_pressure << " hp: " << hood_pressure << " dp: " << dp << endl;
 	}
 
+
+void sendCommand(const char* str)
+	{
+	cout << "ok";
+	}
+
+
 void embedded_test()
 	{
-	// VStrs lines = FIO::cin_read_lines();
+	bool start_button = true;
 
-	bool service_pin_unlocked = true;
-	auto test = ("pin_unlocked.val=" + to_str<int>(service_pin_unlocked)).c_str();
-	cout << test;
-	float dp = -67 ;
+	// TODO 1 test
+	bool hood_is_working = true;
 
+	int fan_mode_auto = 2;
+	fan_mode_auto = fan_mode_auto == 1 ? 0 : 1;
+	fan_mode_auto = fan_mode_auto == 1 ? 0 : 1;
 
-	if (dp > 5.0f)
-		dp = 5.0f;
-	if (dp < -5.0f)
-		dp = -5.0f;
+	float test1 = 0.0f;
+	test1++;
+	test1--;
 
-	for (int i = 0; i < 300; i++)
+	auto test = to_str<int>(0.6f * 0.9f / (test1));
+
+	// TODO 1 test
+	sendCommand("vis system_status,0");
+	// Статус системы (system_status)
+	if (start_button)
 		{
-		auto kp = i < 100 ? 120 : 100;
-		embedded_test_2(true, kp, 113, kp);
+		sendCommand("status_button.val=1");
+		sendCommand("status_button.txt=\"\r\r\rВкл\"");
+		}
+	else
+		{
+		sendCommand("status_button.val=0");
+		sendCommand("status_button.txt=\"\r\r\rВыкл\"");
 		}
 
-	
+	auto send_command_str = [&](std::string cmd) {
+		sendCommand(cmd.c_str());
+		};
+	// 45056, dark red
+	std::string hood_col = hood_is_working ? "45056" : "0";
+	send_command_str("pow_out.pco=" + hood_col);
+	send_command_str("b_mode1.borderc=" + hood_col);
+	send_command_str("b_mode2.borderc=" + hood_col);
+	send_command_str("b_mode3.borderc=" + hood_col);
 
-	// VInts inputs = Vec::strs_to_ints(Str::split(lines[0]));
-	// int N = inputs[0];
-	// int Q = inputs[1];
+	// TODO 1 remove after test
+	// int fan_mode_auto = 2;
 
-	// cout << N << Q << endl;
+	// 9810 = 0x21ca94, teal
+	std::string btn_color = fan_mode_auto == 1 ? "9810" : "65535";
+	send_command_str("b_mode1.pco=" + btn_color);
+	btn_color = fan_mode_auto == 2 ? "9810" : "65535";
+	send_command_str("b_mode2.pco=" + btn_color);
+	btn_color = fan_mode_auto == 3 ? "9810" : "65535";
+	send_command_str("b_mode3.pco=" + btn_color);
 	}
 
 
